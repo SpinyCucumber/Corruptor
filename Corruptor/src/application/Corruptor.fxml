@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<SplitPane dividerPositions="0.5064220183486239" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+  <items>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+         <children>
+            <FlowPane hgap="10.0" prefHeight="28.0" prefWidth="277.0">
+               <children>
+                  <Label text="Model:" />
+                  <ComboBox fx:id="corruptorBox" onAction="#changeCorruptor" prefHeight="25.0" prefWidth="172.0" promptText="Select Corruptor..." />
+               </children>
+            </FlowPane>
+            <FlowPane hgap="10.0" prefHeight="28.0" prefWidth="277.0">
+               <children>
+                  <TextField fx:id="hi" prefHeight="25.0" prefWidth="103.0" promptText="Enter quantity..." />
+                  <RadioButton mnemonicParsing="false" selected="true" text="Ratio">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="quantityGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="bytesRadio" mnemonicParsing="false" text="Bytes" toggleGroup="$quantityGroup" />
+               </children>
+            </FlowPane>
+            <FlowPane hgap="3.0" prefHeight="28.0" prefWidth="277.0" vgap="3.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#loadFile" text="Load File" />
+                  <Button mnemonicParsing="false" onAction="#saveFile" text="Save to File" />
+                  <Button mnemonicParsing="false" onAction="#corrupt" text="Corrupt" />
+                  <Button mnemonicParsing="false" onAction="#reset" text="Reset" />
+               </children>
+            </FlowPane>
+            <TitledPane animated="false" prefHeight="288.0" prefWidth="257.0" text="Options">
+               <content>
+                  <FlowPane fx:id="optionsPane" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </TitledPane>
+            <Label text="Corruptor v1.0" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <TabPane>
+         <tabs>
+            <Tab closable="false" text="Chunk Tree View">
+               <content>
+                  <TreeView fx:id="tree" prefHeight="369.0" prefWidth="253.0" />
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+  </items>
+</SplitPane>
