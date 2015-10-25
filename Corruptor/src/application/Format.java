@@ -43,6 +43,36 @@ public enum Format {
 		
 	};
 	
+	public static class Chunk {
+		
+		private String name;
+		private int begin, end;
+		
+		public String getName() {
+			return name;
+		}
+
+		public int getBegin() {
+			return begin;
+		}
+
+		public int getEnd() {
+			return end;
+		}
+
+		public Chunk(String name, int begin, int end) {
+			this.name = name;
+			this.begin = begin;
+			this.end = end;
+		}
+		
+		@Override
+		public String toString() {
+			return name + " (" + (end-begin) + ")";
+		}
+		
+	}
+	
 	private static final Map<String, String> chunkTypes;
 	private static Map<String, Format> map;
 	
